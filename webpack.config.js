@@ -32,9 +32,15 @@ const config = {
       exclude: /(node_modules)/
     }, {
       test: /\.scss$/,
-      loader: 'style?sourceMap!css?sourceMap!postcss?sourceMap!sass?sourceMap'
+      loaders: [
+        'react-hot',
+        'style?sourceMap',
+        'css?souceMap',
+        'postcss?sourceMap',
+        'sass?sourceMap'
+      ]
     }, {
-      test: /\.(jpe?g|png|gif|svg)$/i,
+      test: /\.(jpe?g|gif)$/i,
       loaders: [
         'file?hash=sha512&digest=hex?name=[hash].[ext]',
         'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
@@ -43,6 +49,12 @@ const config = {
     }, {
       test: /bootstrap\/dist\/js\/umd\//,
       loader: 'imports?jQuery=jquery'
+    }, {
+      test: /\.(png|woff|woff2|eot|svg|ico)$/,
+      loader: 'file?name=[name].[ext]'
+    }, {
+      test: /.[ot]tf$/,
+      loader: 'file?mimetype=application/octet-stream&name=[name].[ext]'
     }]
   },
   'postcss': () => {

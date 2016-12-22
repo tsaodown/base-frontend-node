@@ -1,4 +1,5 @@
 [ignore]
+.*/node_modules/stylelint/.*
 
 [include]
 
@@ -6,3 +7,5 @@
 
 [options]
 module.name_mapper='.*\(.scss\)' -> 'empty/object'
+module.name_mapper='.*\(.otf\)' -> 'empty/object'
+module.name_mapper='.*\(.ico\)' -> 'empty/object'
